@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UserGreeting({ text, name, handleLogout, className }) {
+export default function UserGreeting({ text, name, handleLogout}) {
   return (
     <>
       <p>
