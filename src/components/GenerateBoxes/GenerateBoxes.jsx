@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import generateRandomColor from "../../utils/GenerateRandomColor";
 
 const GenerateBoxes = () => {
   const [number, setNumber] = useState(0);
@@ -22,11 +23,6 @@ const GenerateBoxes = () => {
     setNumber(e.target.value);
   }
 
-  function generateRandomColor() {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return "#" + randomColor;
-  }
-
   return (
     <>
       <p>Number of boxes:</p>
@@ -43,7 +39,7 @@ const GenerateBoxes = () => {
           }}
         >
           {res.map((box) => {
-            const color = generateRandomColor();
+            const color = _.generateRandomColor();
             return (
               <div
                 key={box}

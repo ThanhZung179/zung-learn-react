@@ -11,6 +11,8 @@ function App() {
     <br/>
     <hr/>
     <GenerateBoxes/>
+    <br/>
+    <hr/>
     </>
   );
 }
