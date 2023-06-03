@@ -1,26 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const BoxColor = () => {
+  const colors = {
+    red: "red",
+    gold: "gold",
+    aqua: "aqua",
+    purple: "purple",
+  };
 
-  const [blockColor, setBlockColor] = useState(null)
+  const [activeColor, setActiveColor] = useState(null);
 
-  const colors = [red, gold, purle, aqua]
-
-  const handleClick = (color) => {
-    blockColor===color?setBlockColor(null):setBlockColor(color)
-  }
-
-
+  const handleBlockClick = (color) => {
+    setActiveColor((prevColor) => (prevColor === color ? null : color));
+  };
 
   return (
-    <div>
-      <div
+    <div
       style={{
-        backgroundColor: 'red',
-        width:200,
-        height: 200,  
-      }}></div>
-
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gridGap: 10,
+      }}
+    >
+      {Object.entries(colors).map(([key, value]) => (
+        <div
+          key={key}
+          style={{
+            backgroundColor: activeColor
+              ? activeColor === key
+                ? value
+                : colors[activeColor]
+              : value,
+            width: 100,
+            height: 100,
+            cursor: "pointer",
+          }}
+          onClick={() => handleBlockClick(key)}
+        >
+          <span className="inside-box">{key}</span>
+        </div>
+      ))}
     </div>
   );
 };
